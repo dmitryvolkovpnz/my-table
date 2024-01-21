@@ -1,27 +1,52 @@
 <div class="container">
 <h1> Мой дневник </h1>
 
-<div class="modal-body">
-  <p>
-    <label>Название</label><br>
-    <input [(ngModel)]="name" />
-</p>
-<p>
-    <label>Название</label><br>
-    <input [(ngModel)]="description" />
-</p>
-<button class="btn btn-primary" (click)="addItem(name , description)">Добавить</button>
-</div>
+
+  <!-- Форма открытия формы добовления записи -->
+  <button type="button" class="btn btn-primary" (click)="openModal()">
+    Добавить новую запись в дневник
+  </button>
+
+  <!-- Модальное окно с формой -->
+  <div class="modal" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Добавь новую запись в дневник</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <label class="col-form-label">Дата:</label>
+              <input class="form-control" [(ngModel)]="name "/>
+            </div>
+            <div class="mb-3">
+              <label class="col-form-label">Твои мысли:</label>
+              <input class="form-control" [(ngModel)]="description "/>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Закрыть</button>
+          <button class="btn btn-primary" (click)="addItem(name , description)">Добавить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
   <div class="container">
+    <!-- Тело карточек с записями в дневнике -->
   <div class="card mt-4" *ngFor="let x of items; let index = index;">
   <div class="card-header" style="height: 55px;">
-      Сегодняшняя дата
+      {{x.name}}
+    <!-- кнопка удаления записи из дневника -->
       <button class="btn btn-danger" style="position: absolute; right: 3rem;" (click)="remove(index)">Удалить</button>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>{{x.name}}</p>
       <footer class="blockquote-footer">{{x.description}}</footer>
     </blockquote>
   </div>

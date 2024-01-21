@@ -27,11 +27,9 @@ export class AppComponent {
     name: string = "";
     description: string = "";
 
-
-
     items: Item[] =
     [
-        { name:"Первая", description: "Моя первая запись"},
+        { name:"21.01.2023", description: "Моя первая запись"},
     ];
 
     addItem(name: string , description: string): void {
@@ -43,6 +41,19 @@ export class AppComponent {
 
     remove(index: number): void {
       this.items.splice(index, 1);
+    }
+
+    openModal() {
+      const modelDiv = document.getElementById('myModal');
+      if (modelDiv != null){
+        modelDiv.style.display = 'block';
+      }
+    }
+    closeModal() {
+      const modelDiv = document.getElementById('myModal');
+      if (modelDiv != null){
+        modelDiv.style.display = 'none';
+      }
     }
 
 }
