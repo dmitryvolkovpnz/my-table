@@ -4,13 +4,20 @@
 
 ## Запуск проекта
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-1.Запустите клонирование проекта в локальную директроию
+1. Запустите клонирование проекта в локальную директроию
 `git clone https://github.com/dmitryvolkovpnz/my-table.git`
 
+2. Перейдите в директорию с проектом
+`cd my-table`
 
-## Build
+3. Запустите установку всех зависимостей проекта
+`npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. Запустите сборку проекта
+`npm run build`
+
+5. Запустите сервер командой `ng serve` и перейдите по ссылке `http://localhost:4200/`.
+
+## Возможности
+
 
